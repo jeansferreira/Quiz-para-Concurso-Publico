@@ -1,0 +1,254 @@
+body {
+	margin: 0px;
+	font-family: Arial, Verdana, sans-serif;
+	font-size:11px;
+}
+/* Definição do padrão de texto do aplicativo */
+table, p{
+	color:#004085;
+	font-size:11px;
+}
+/* Definição de margens para o frame do centro, vai na tag body do frame */
+.centro{
+	margin-left: 13px;
+	margin-top: 5px;
+
+	}
+.titulo_azul11px{
+	font-weight:bold;
+	color:#004085;
+	font-size:11px;
+}
+.titulo_branco11px{
+	font-weight:bold;
+	color:white;
+	font-size:10px;
+}
+.menu_cinza11px{
+	font-weight:bold;
+	color:gray;
+	font-size:11px;
+
+}
+.titulo_usuario{
+	font-weight:bold;
+	color:white;
+	font-size:11px;
+}
+.aviso_login{
+	color: #CCD9E7;
+	font-size:10px;
+}
+.titulo_aplicativo{
+	color:white;
+	font-size:30px;
+}
+.titulo_area{
+	font-weight:bold;
+	color:#004085;
+	font-size:16px;
+}
+/* ESTILO PARA TABELAS */
+.fundo_menu {
+	background-image:url(imagens/fundo-menu.gif);
+}
+
+.fundo_cinza {
+	BACKGROUND-COLOR: #f5f3f3
+}
+.fundo_corpo {
+	BACKGROUND-COLOR: #E5ECF3
+}
+.fundo_cabecalho {
+	BACKGROUND-COLOR: #244f83
+}
+.fundo_login {
+	BACKGROUND-COLOR: #89A7C7
+}
+.tabela_pesquisa{
+	background-color:#CCD9E7;
+	border:1px solid #004085;
+	padding:1px;
+}
+.titulo_tabela{
+	font-weight:bold;
+	color:white;
+	font-size:11px;
+	height:22px;
+	width:500px
+	vertical-align:middle;
+	background-color:#5B84B0;
+	border-right:1px solid white;
+}
+.tabela{
+	text-align:center;
+	border:1px solid #4977A8;
+	}
+.tr_acompanhamento0{
+ 	color: #000000;
+ 	font-family: Verdana,Arial,Helvetica,sans-serif;
+	font-size: 8pt;
+	background-color: #FFFFFF;
+	font-weight: normal;
+}
+
+.tr_acompanhamento1{
+ 	color: #000000;
+ 	font-family: Verdana,Arial,Helvetica,sans-serif;
+	font-size: 8pt;
+	background-color: #DDDDDD;
+	font-weight: normal;
+}
+
+.tr_marcaLinha{
+	background-color:#A2AAB3;
+	border-bottom:1px solid #004085;
+	border-top:1px solid #004085;
+	border-right:1px solid white;
+	text-decoration: none;
+}
+/* ESTILO PARA FORMULÁRIOS E VISUALIZAÇÃO DE DADOS */
+.erros {
+	FONT-SIZE: 10pt; COLOR: #ff0000; FONT-FAMILY: Verdana,Arial,Helvetica,sans-serif
+}
+.tabela_dados{
+	background-color:#F8FAFC;
+	font-size:10px;
+}
+.destaque_dados{
+	background-color:#ECEDEE;
+	margin:2px;
+	font-size:10px;
+	/*font-weight:bold;*/
+}
+.vis_titulo{
+	background-color:#CCD9E7;
+	margin:2px;
+	font-size:12px;
+	font-weight:bold;
+}
+.vis_campo{
+	background-color:#E5ECF3; 
+	border-right:3px solid #004085;
+	font-size:11px;
+	color:#5982AF;
+	font-weight:bold;
+	padding-right:3px;
+	text-align:right;
+	}
+.vis_registro{
+	border-bottom:1px dotted #004085;
+	font-size:12px;
+}
+
+.vis_campo_obrigatorio{
+	background-color:#E5ECF3; 
+	font-size:12px;
+	color:#5982AF;
+	margin-left:3px;
+	font-weight:bold;
+	padding-right:3px;
+	text-align:center;
+	}
+
+.sem_dados_sessao{
+	background-color:#E5ECF3; 
+	font-size:12px;
+	}
+
+/* ESTILO PARA MENSAGEM DE ERRO */
+.msg_erro{
+	font-size:11px;
+	color:#FE0000;
+	}
+
+/* ESTILO DOS LINKS */
+a:link {
+	color: #527DAC;
+	/*color: #004085;*/
+	text-decoration: none;
+}
+a:hover {
+	color: #244F83;
+	/*color: #666666;*/
+	/*border-bottom:1px dotted #004085;*/
+}
+a:visited {
+	color: #527DAC;
+	text-decoration: none;
+}
+a:visited:hover {
+	color: #244F83;
+	/*color: #666666;*/
+	/*border-bottom:1px dotted #004085;*/
+}
+/* ESTILO DOS LINKS DO MENU PRINCIPAL */
+a.menu:link {
+	color: WHITE;
+	text-decoration: none;
+}
+a.menu:hover {
+	color: #CCD9E7;
+	/*border-bottom:1px dotted #CCD9E7;*/
+	text-decoration: none;
+
+}
+a.menu:visited {
+	color: #EEEEEE;
+	text-decoration: none;
+}
+a.menu:visited:hover {
+	color: #CCD9E7;
+	/*border-bottom:1px dotted #CCD9E7;*/
+}
+/* ESTILO PARA TEXTOS DE AJUDA NO PREENCHIMENTO DOS CAMPOS */
+.ajuda_campo{
+	color:#004085;
+	font-size:10px;
+}
+.input {
+	font-family:Arial, Verdana, sans-serif;
+	font-weight:normal;	
+	font-size:12px;
+	border:1px solid #386AA0;
+	height: 20px;
+	color: #000000;
+}
+.inputArea {
+	font-family:Arial, Verdana, sans-serif;
+	font-weight:normal;	
+	font-size:12px;
+	border:1px solid #386AA0;
+	height: 40px;
+	color: #000000;
+}
+.select{
+	font-family:Arial, Verdana, sans-serif;
+	font-size:11px;
+	font-weight:normal;
+	border:1px solid #386AA0;
+	background-color:#FFFFFF;
+	color: #386AA0;
+}
+.textarea {
+	font-family:Arial, Verdana, sans-serif;
+	font-size:11px;
+	border:0px;
+	background-color: white;
+	color: white;
+}
+.radio {
+	background-color: transparent;
+	border: 0px;
+	width:auto;
+}
+.botao{
+	margin:5px;
+	font-family:Arial, Verdana, sans-serif;
+	font-size:10px;
+	color:#004085;
+	width:auto;
+	border:1px solid #004085;
+	background-color: #FFFFFF;
+	/*background-color: #5B84B0;*/
+}

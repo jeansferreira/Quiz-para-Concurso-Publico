@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+
+<!-- Configuração de Datasource para usar connection pool com o -->
+<!-- mysql                                                      -->
+
+<datasources>
+   <local-tx-datasource>
+      <jndi-name>StudyQuizMyDS</jndi-name>
+      <connection-url>jdbc:mysql://localhost/quiz</connection-url>
+      <driver-class>com.mysql.jdbc.Driver</driver-class>
+      <user-name>root</user-name>
+      <password>root</password>
+      <min-pool-size>10</min-pool-size>
+      <transaction-isolation>TRANSACTION_SERIALIZABLE</transaction-isolation>
+   </local-tx-datasource>
+</datasources>

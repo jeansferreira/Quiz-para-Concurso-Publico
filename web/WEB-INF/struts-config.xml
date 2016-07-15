@@ -1,0 +1,230 @@
+<?xml version="1.0" encoding="ISO-8859-1" ?>
+
+<!DOCTYPE struts-config PUBLIC
+          "-//Apache Software Foundation//DTD Struts Configuration 1.2//EN"
+          "http://jakarta.apache.org/struts/dtds/struts-config_1_2.dtd">
+
+<struts-config>
+
+	<!-- ================================================ Form Bean Definitions -->
+
+	<form-beans>
+		<form-bean name="cadastroForm" type="org.apache.struts.validator.DynaValidatorForm">
+			<form-property name="numero_processo" type="java.lang.String" />
+			<form-property name="nome" type="java.lang.String" />
+			<form-property name="endereco" type="java.lang.String" />
+			<form-property name="complemento" type="java.lang.String" />
+			<form-property name="bairro" type="java.lang.String" />
+			<form-property name="ciade" type="java.lang.String" />
+			<form-property name="pais" type="java.lang.String" />
+			<form-property name="idade" type="java.lang.String" />
+			<form-property name="numero_inscricao" type="java.lang.String" />
+			<form-property name="tipo_inscricao" type="java.lang.String" />
+			<form-property name="fone_residencial" type="java.lang.String" />
+			<form-property name="fone_celular" type="java.lang.String" />
+		</form-bean>
+
+		<form-bean name="pesquisaForm" type="org.apache.struts.validator.DynaValidatorForm">
+			<form-property name="lista" type="java.lang.String[]" />
+			<form-property name="nivel" type="java.lang.String" />
+		</form-bean>
+
+		<form-bean name="loginForm" type="org.apache.struts.validator.DynaValidatorForm">
+			<form-property name="login" type="java.lang.String" />
+			<form-property name="password" type="java.lang.String" />
+		</form-bean>
+
+		<form-bean name="insertUserForm" type="org.apache.struts.validator.DynaValidatorForm">
+			<form-property name="nome" type="java.lang.String" />
+			<form-property name="senha" type="java.lang.String" />
+			<form-property name="cfSenha" type="java.lang.String" />
+		</form-bean>
+
+		<form-bean name="insertQuizForm" type="org.apache.struts.validator.DynaValidatorForm">
+			<form-property name="listaAssunto" type="java.lang.String" />
+			<form-property name="pergunta" type="java.lang.String" />
+			<form-property name="resposta" type="java.lang.String" />
+			<form-property name="nivel" type="java.lang.String" />
+			<form-property name="assunto" type="java.lang.String" />
+
+		</form-bean>
+
+		<form-bean name="listaAssuntoForm" type="org.apache.struts.validator.DynaValidatorForm">
+		</form-bean>
+
+		<form-bean name="listaQuizForm" type="org.apache.struts.validator.DynaValidatorForm">
+			<form-property name="gpEstrutura" type="java.lang.String[]" />
+		</form-bean>
+
+	</form-beans>
+
+
+	<!-- ========================================= Global Exception Definitions -->
+
+	<global-exceptions></global-exceptions>
+
+
+	<!-- ========== Global Forward Definitions =============================== -->
+	<global-forwards>
+		<forward contextRelative="true" name="home"
+			path="clearSession.do" redirect="true" />
+		<forward contextRelative="true" name="pesquisa"
+			path="buscaLista.do" redirect="true" />
+		<forward contextRelative="true" name="ajuda" path="ajuda.jsp"
+			redirect="true" />
+		<forward contextRelative="true" name="informacoes"
+			path="informacoes.jsp" redirect="true" />
+		<forward contextRelative="true" name="Administrador"
+			path="login.jsp" redirect="true" />
+		<forward contextRelative="true" name="insertUser"
+			path="insertUser.jsp" redirect="true" />
+		<forward contextRelative="true" name="insertQuiz"
+			path="listaAssunto.do" redirect="true" />
+		<forward contextRelative="true" name="viewQuiz"
+			path="findAssunto.do" redirect="true" />
+	</global-forwards>
+
+
+	<!-- =========================================== Action Mapping Definitions -->
+
+	<!-- ========== Action Mapping Definitions =============================== -->
+	<action-mappings>
+
+		<action attribute="loginForm" input="/login.jsp"
+			name="loginForm" path="/login"
+			type="com.jean.quiz.action.LoginAction">
+			<forward name="sucesso" path="adm.jsp" redirect="true"
+				contextRelative="true" />
+		</action>
+
+		<action attribute="loginForm" input="/index.jsp"
+			name="loginForm" path="/clearSession"
+			type="com.jean.quiz.action.ClearSessionAction">
+			<forward name="sucesso" path="index.jsp" redirect="true"
+				contextRelative="true" />
+		</action>
+
+		<action attribute="insertUserForm" input="/insertUser.jsp"
+			name="insertUserForm" path="/insertUser"
+			type="com.jean.quiz.action.InsertUserAction">
+			<forward name="sucesso" path="adm.jsp" redirect="true"
+				contextRelative="true" />
+		</action>
+
+		<action attribute="cadastroForm" input="/cadastro.jsp"
+			name="cadastroForm" path="/cadastro"
+			type="com.jean.quiz.action.CadastroAction">
+			<forward name="sucesso" path="index.jsp" redirect="true"
+				contextRelative="true" />
+		</action>
+
+		<action attribute="pesquisaForm" input="/pesquisa.jsp"
+			name="pesquisaForm" path="/pesquisa"
+			type="com.jean.quiz.action.PesquisaAction">
+			<forward name="sucesso" path="formulario.jsp"
+				redirect="true" contextRelative="true" />
+		</action>
+
+		<action attribute="pesquisaForm" input="/pesquisa.jsp"
+			name="pesquisaForm" path="/buscaLista"
+			type="com.jean.quiz.action.BuscaListaAction">
+			<forward name="sucesso" path="pesquisa.jsp" redirect="true"
+				contextRelative="true" />
+		</action>
+
+		<action attribute="listaAssuntoForm" input="/insertQuiz.jsp"
+			name="listaAssuntoForm" path="/listaAssunto"
+			type="com.jean.quiz.action.ListaAssuntoAction">
+			<forward name="sucesso" path="insertQuiz.jsp"
+				redirect="true" contextRelative="true" />
+		</action>
+
+		<action attribute="insertQuizForm" input="/insertQuiz.jsp"
+			name="insertQuizForm" path="/insertQuiz"
+			type="com.jean.quiz.action.InsertQuizAction">
+			<forward name="sucesso" path="insertQuiz.jsp" redirect="true" contextRelative="true" />
+		</action>
+
+		<action attribute="insertQuizForm" input="/insertQuiz.jsp"
+			name="insertQuizForm" path="/removerRespostaLista"
+			type="com.jean.quiz.action.RemoverRespostaListaAction">
+			<forward name="sucesso" path="insertQuiz.jsp"
+				redirect="true" contextRelative="true" />
+		</action>
+
+		<action attribute="listaQuizForm" input="/insertQuiz.jsp"
+			name="listaQuizForm" path="/listaQuiz"
+			type="com.jean.quiz.action.ListaQuizAction">
+			<forward name="sucesso" path="listaQuiz.jsp" redirect="true"
+				contextRelative="true" />
+		</action>
+
+		<action attribute="listaQuizForm" input="/insertQuiz.jsp"
+			name="listaQuizForm" path="/findAssunto"
+			type="com.jean.quiz.action.FindAssuntoAction">
+			<forward name="sucesso" path="listaQuiz.jsp" redirect="true"
+				contextRelative="true" />
+		</action>
+
+	</action-mappings>
+
+	<!-- ============================================= Controller Configuration -->
+
+	<controller
+		processorClass="org.apache.struts.tiles.TilesRequestProcessor" />
+
+
+	<!-- ======================================== Message Resources Definitions -->
+
+	<message-resources parameter="java.resources.application" />
+
+
+	<!-- =============================================== Plug Ins Configuration -->
+
+	<!-- ======================================================= Tiles plugin -->
+	<!--
+		This plugin initialize Tiles definition factory. This later can takes some
+		parameters explained here after. The plugin first read parameters from
+		web.xml, thenoverload them with parameters defined here. All parameters
+		are optional.
+		The plugin should be declared in each struts-config file.
+		- definitions-config: (optional)
+		Specify configuration file names. There can be several comma
+		separated file names (default: ?? )
+		- moduleAware: (optional - struts1.1)
+		Specify if the Tiles definition factory is module aware. If true
+		(default), there will be one factory for each Struts module.
+		If false, there will be one common factory for all module. In this
+		later case, it is still needed to declare one plugin per module.
+		The factory will be initialized with parameters found in the first
+		initialized plugin (generally the one associated with the default
+		module).
+		true : One factory per module. (default)
+		false : one single shared factory for all modules
+		- definitions-parser-validate: (optional)
+		Specify if xml parser should validate the Tiles configuration file.
+		true : validate. DTD should be specified in file header (default)
+		false : no validation
+		
+		Paths found in Tiles definitions are relative to the main context.
+	-->
+
+	<plug-in className="org.apache.struts.tiles.TilesPlugin">
+
+		<!-- Path to XML definition file -->
+		<set-property property="definitions-config"
+			value="/WEB-INF/tiles-defs.xml" />
+		<!-- Set Module-awareness to true -->
+		<set-property property="moduleAware" value="true" />
+	</plug-in>
+
+
+	<!-- =================================================== Validator plugin -->
+
+	<plug-in className="org.apache.struts.validator.ValidatorPlugIn">
+		<set-property property="pathnames"
+			value="/WEB-INF/validator-rules.xml,/WEB-INF/validation.xml" />
+	</plug-in>
+
+</struts-config>
+

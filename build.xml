@@ -1,0 +1,73 @@
+<project name="Quiz" default="deploy" basedir=".">   
+
+
+  <!-- ============================================== -->
+  <!--                 Propriedades                  -->
+  <!-- ============================================== -->
+  <property name = "API-beannutils"   location = "web/WEB-INF/lib/commons-beanutils.jar"/>
+  <property name = "API-collections"  location = "web/WEB-INF/lib/commons-collections.jar"/>
+  <property name = "API-digester"     location = "web/WEB-INF/lib/commons-digester.jar"/>	
+  <property name = "API-fileupload"   location = "web/WEB-INF/lib/commons-fileupload.jar"/>
+  <property name = "API-logging"      location = "web/WEB-INF/lib/commons-logging.jar"/>
+  <property name = "API-validator"    location = "web/WEB-INF/lib/commons-validator.jar"/>
+  <property name = "API-jakarta"      location = "web/WEB-INF/lib/jakarta-oro.jar"/>
+  <property name = "API-struts"       location = "web/WEB-INF/lib/struts.jar"/>
+  <property name = "API-servlet-api"  location = "web/WEB-INF/lib/servlet-api.jar"/>
+  <property name = "lib"              location = "web/WEB-INF/lib"/>	
+  <property name = "rt"               location = "runtime"/>
+  <property name = "web"              location = "web"/>
+  <property name = "deploy"           location = "C:\\Programas\\jboss-4.0.2\\server\\default\\deploy" />
+
+  <target name="init">  
+    <property name="src" value="src"/>  
+    <property name="dist" value="bin"/>
+  	
+  	<copy todir="${dist}">
+  		<fileset dir="${web}">
+  			<include name="**/*.*"/>
+  		</fileset>
+  	</copy>  	
+  </target>  
+	
+  <target name="clean" depends="init">  
+    <deltree dir="${dist}"/>  
+  </target>  
+	
+  <target name="prepare" depends="init">  
+    <mkdir dir="${dist}"/>  
+  </target>  
+
+  <!-- ============================================== -->
+  <!--                   Compila                      -->
+  <!-- ============================================== -->
+  <target name="compile" depends="clean, init, prepare">  
+    <javac srcdir="${src}" destdir="${dist}">  
+      <classpath path="${API-beannutils}"       />
+      <classpath path="${API-collections}"     />
+      <classpath path="${API-digester}"    />
+      <classpath path="${API-fileupload}" />
+      <classpath path="${API-logging}" />
+      <classpath path="${API-validator}" />
+      <classpath path="${API-jakarta}" />
+      <classpath path="${API-struts}" />
+      <classpath path="${API-servlet-api}" />
+    </javac>	
+  </target>
+
+  <!-- ============================================== -->
+  <!--              Cria um pacote                    -->
+  <!-- ============================================== -->
+  <target name="package" depends="compile">
+    <delete includeEmptyDirs="True">
+  	  <fileset dir="${rt}" defaultexcludes="no"> <include name="${rt}/quiz.war"/> </fileset>
+    </delete>
+    <jar destfile="${rt}/quiz.war">
+      <fileset dir = "${web}" includes = "**/*.*"/>
+    </jar>
+  </target>
+	
+  <target name="deploy" depends="package">
+	<copy file="${rt}/quiz.war" toFile="${deploy}/quiz.war" overwrite="yes" />
+  </target>
+	
+</project>
